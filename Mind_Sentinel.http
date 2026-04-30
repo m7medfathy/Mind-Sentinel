@@ -1,0 +1,6 @@
+@Mind_Sentinel_HostAddress = http://localhost:5263
+
+GET {{Mind_Sentinel_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
