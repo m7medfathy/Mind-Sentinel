@@ -13,7 +13,7 @@ namespace Mind_Sentinel.Data
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             //5awal
             var constr = configuration.GetSection("constr").Value;
-
+            //5awal
             optionsBuilder.UseSqlServer(constr);
 
         }
