@@ -1,19 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Mind_Sentinel.Model;
 
 namespace Mind_Sentinel.Data
 {
     public class AppDbContext : DbContext
     {
+        public DbSet<Clinician> Clinicans { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+        public DbSet<TherapeuticSession> TherapeuticSessions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<EmotionAnalysis> EmotionAnalyses { get; set; }
+        public DbSet<JournalEntry> JournalEntries { get; set; }
+        public DbSet<ProgressReport> ProgressReports { get; set; }
+        public DbSet<RiskAssessment> RiskAssessments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //5awal
+
             base.OnConfiguring(optionsBuilder);
 
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            //5awal
+
             var constr = configuration.GetSection("constr").Value;
-            //5awal
+
             optionsBuilder.UseSqlServer(constr);
 
         }
