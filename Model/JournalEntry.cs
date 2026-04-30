@@ -1,11 +1,13 @@
-﻿namespace Mind_Sentinel.Model
+﻿namespace Mind_Sentinel.Model;
+
+using System.ComponentModel.DataAnnotations;
+
+public class JournalEntry
 {
-    public class JournalEntry
-    {
-        public int entry_id { get; set; }
-        public int patient_id { get; set; }
-        public string text { get; set; }
-        public DateTime date { get; set; }
-        public Patient patient { get; set; }
-    }
+    [Key]
+    public int entry_id { get; set; }
+    public int patient_id { get; set; }
+    public string text { get; set; }
+    public DateTime date { get; set; }
+    public Patient patient { get; set; }
 }

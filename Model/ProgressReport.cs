@@ -1,10 +1,13 @@
-﻿namespace Mind_Sentinel.Model
+﻿namespace Mind_Sentinel.Model;
+
+using System.ComponentModel.DataAnnotations;
+
+
+public class ProgressReport
 {
-    public class ProgressReport
-    {
-        public int report_id { get; set; }
-        public int patient_id { get; set; }
-        public string progress_summary { get; set; }
-        public Patient patient { get; set; }
-    }
+    [Key]
+    public int report_id { get; set; }
+    public int patient_id { get; set; }
+    public string progress_summary { get; set; }
+    public Patient patient { get; set; }
 }
