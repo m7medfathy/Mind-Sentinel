@@ -26,5 +26,7 @@ namespace Mind_Sentinel.Data
             optionsBuilder.UseSqlServer(constr);
 
         }
+
+        
     }
 }

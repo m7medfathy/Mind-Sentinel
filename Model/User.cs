@@ -1,10 +1,12 @@
-﻿namespace Mind_Sentinel.Model
+﻿namespace Mind_Sentinel.Model;
+
+using System.ComponentModel.DataAnnotations;
+
+public class User
 {
-    public class User
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Role { get; set; }
-    }
+    [Key]
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Role { get; set; }
 }

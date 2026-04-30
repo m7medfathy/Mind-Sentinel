@@ -1,9 +1,11 @@
-﻿namespace Mind_Sentinel.Model
+﻿namespace Mind_Sentinel.Model;
+
+using System.ComponentModel.DataAnnotations;
+
+public class RiskAssessment
 {
-    public class RiskAssessment
-    {
-        public int risk_id { get; set; }
-        public int analysis_id { get; set; }
-        public int risk_level { get; set; }
-    }
+    [Key]
+    public int risk_id { get; set; }
+    public int analysis_id { get; set; }
+    public int risk_level { get; set; }
 }
