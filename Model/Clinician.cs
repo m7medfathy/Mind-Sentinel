@@ -5,5 +5,7 @@
         public int clinician_id { get; set; }
         public int user_id { get; set; }
         public string specialization { get; set; }
+        public User user { get; set; }
+        public List<TherapeuticSession> therapeutic_sessions { get; set; } 
     }
 }
