@@ -11,7 +11,7 @@ namespace Mind_Sentinel.Data
             base.OnConfiguring(optionsBuilder);
 
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-
+            //5awal
             var constr = configuration.GetSection("constr").Value;
 
             optionsBuilder.UseSqlServer(constr);
