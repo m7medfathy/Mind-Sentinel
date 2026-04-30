@@ -1,5 +1,5 @@
 
-namespace WebApplication1
+namespace Mind_Sentinel
 {
     public class Program
     {
