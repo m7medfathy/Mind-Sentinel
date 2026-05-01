@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Mind_Sentinel.Model;
+using Mind_Sentinel.ModelsConfiguration;
 
 namespace Mind_Sentinel.Data
 {
@@ -19,14 +20,30 @@ namespace Mind_Sentinel.Data
 
             base.OnConfiguring(optionsBuilder);
 
-            var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
 
-            var constr = configuration.GetSection("constr").Value;
+            var constr = configuration
+                .GetSection("constr")
+                .Value;
 
             optionsBuilder.UseSqlServer(constr);
 
         }
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<TherapeuticSession>().HasOne(e => e.patient).
+                WithMany(e => e.therapeutic_sessions).
+                HasForeignKey(e => e.session_id).IsRequired();
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserConfiguration).Assembly);
+
+        }
+
     }
 }
