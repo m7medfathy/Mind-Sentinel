@@ -1,4 +1,6 @@
 
+using Mind_Sentinel.Data;
+
 namespace WebApplication1
 {
     public class Program
@@ -8,9 +10,11 @@ namespace WebApplication1
 
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers(); 
-            builder.Services.AddEndpointsApiExplorer(); 
-            builder.Services.AddSwaggerGen(); 
+            builder.Services.AddDbContext<AppDbContext>();
+
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
             if (app.Environment.IsDevelopment())
@@ -20,7 +24,6 @@ namespace WebApplication1
             }
 
             app.UseHttpsRedirection();
-
            
             app.UseRouting();
 
