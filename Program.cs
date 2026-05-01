@@ -1,4 +1,5 @@
 
+using Microsoft.EntityFrameworkCore;
 using Mind_Sentinel.Data;
 
 namespace Mind_Sentinel
@@ -10,7 +11,10 @@ namespace Mind_Sentinel
 
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<AppDbContext>();
+            builder.Services.AddDbContext<AppDbContext>( options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("constr"));
+            });
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

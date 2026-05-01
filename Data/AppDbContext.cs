@@ -6,6 +6,10 @@ namespace Mind_Sentinel.Data
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+            
+        }
         public DbSet<Clinician> Clinicans { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<TherapeuticSession> TherapeuticSessions { get; set; }
@@ -15,22 +19,22 @@ namespace Mind_Sentinel.Data
         public DbSet<ProgressReport> ProgressReports { get; set; }
         public DbSet<RiskAssessment> RiskAssessments { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
 
-            base.OnConfiguring(optionsBuilder);
+        //    base.OnConfiguring(optionsBuilder);
 
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+        //    var configuration = new ConfigurationBuilder()
+        //        .AddJsonFile("appsettings.json")
+        //        .Build();
 
-            var constr = configuration
-                .GetSection("constr")
-                .Value;
+        //    var constr = configuration
+        //        .GetSection("constr")
+        //        .Value;
 
-            optionsBuilder.UseSqlServer(constr);
+        //    optionsBuilder.UseSqlServer(constr);
 
-        }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
