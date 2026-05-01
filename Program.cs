@@ -1,4 +1,6 @@
 
+using Mind_Sentinel.Data;
+
 namespace Mind_Sentinel
 {
     public class Program
